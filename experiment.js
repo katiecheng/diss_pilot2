@@ -180,17 +180,23 @@ var experiment = {
   interventionStrategyFraming: function(round) {
     if (round == 1) {
       var header = "Study - Round 1";
-      var text = "Now you will be asked to study each pair either by (1) \
-                reviewing the Swahili-English word pair, or (2) trying to \
-                recall the English translation from memory. After 5 seconds,\
-                the screen will automatically advance and save your input.";
+      var text = "Now you will be asked to study each Swahili-English word pair either by (1) \
+                copying the English translation into the textbox, or (2) trying to \
+                recall the English translation from memory. After 5 seconds, \
+                the screen will automatically advance and save your input. For the cases that you \
+                try to recall the translation from memory, you will get to see the correct answer. If you were \
+                correct, the answer will be green, if incorrect, the answer will be red.";
     } else if (round == 2) {
       var header = "Study - Round 2";
-      var text = "Now, you will be asked to study each pair again, \
+      var text = "Now, you will be asked to study each Swahili-English word pair again, \
                 either by (1) \
-                reviewing the Swahili-English word pair, or (2) trying to \
-                recall the English translation from memory. After 5 seconds,\
-                the screen will automatically advance and save your input.";
+                copying the English translation into the textbox, or (2) trying to \
+                recall the English translation from memory. For each word pair, if you copied \
+                in the first study round, you will be asked to copy again; if you tried to recall in the \
+                first study round, you will be asked to recall again. After 5 seconds,\
+                the screen will automatically advance and save your input. For the cases that you \
+                try to recall the translation from memory, you will get to see the correct answer. If you were \
+                correct, the answer will be green, if incorrect, the answer will be red.";
     }
     showSlide("textNext");
     $("#instructionsHeader").text(header);
