@@ -49,21 +49,24 @@ function shuffle(array) {
 
 
 // ## Configuration settings
-var numTrials = 40, //40
-  trialDuration = 4000,
+var numTrials = 40,
+  trialDuration = 5000,
   feedbackDuration = 2000, 
+  //toggle test 1 or 2 strategy rounds
+  numStrategyRounds = 2;
   // condition = randomInteger(4), // 2x2
   // condition = randomInteger(2), // expt vs. control
   condition = 2,
-  //test intervention with first numTrials items, in case need to re-test people
-  numTrials = 4, // testing
-  //toggle test 1 or 2 strategy rounds
-  numStrategyRounds = 2;
-  myTrialOrder = shuffle([...Array(numTrials).keys()]),
+  /* test intervention with first numTrials items, in case need to re-test people*/
+  // numTrials = 20, // testing
+  // myTrialOrder = shuffle([...Array(numTrials).keys()]),
+  // interventionTrials = myTrialOrder.slice(0),
+  // assessmentTrials = [],
+  /* test intervention with last numTrials items */
+  myTrialOrder = shuffle([...Array(40).keys()].slice(20,40)),
   interventionTrials = myTrialOrder.slice(0),
   assessmentTrials = [],
-  // all 40
-  // myTrialOrder = shuffle([...Array(40).keys()]).slice(0, numTrials),
+  /* full intervention with all 40 */
   // interventionTrials = myTrialOrder.slice(0,(numTrials/2)),
   // assessmentTrials = myTrialOrder.slice((numTrials/2), numTrials),
   swahili_english_pairs = [
@@ -126,11 +129,8 @@ var experiment = {
   interventionStudyTrials: shuffle(interventionTrials.slice(0)), // study order
   interventionStrategyTrials1: shuffle(interventionTrials.slice(0)), // strategy order 1
   interventionStrategyTrials2: shuffle(interventionTrials.slice(0)), // strategy order 2
-  // interventionGenerateTrials: interventionTrials.slice(0,(numTrials/4)),
-  // interventionRestudyTrials: interventionTrials.slice((numTrials/4), numTrials/2),
-  // for testing intervention only
-  interventionGenerateTrials: interventionTrials.slice(0,(numTrials/2)),
-  interventionRestudyTrials: interventionTrials.slice((numTrials/2), numTrials),
+  interventionGenerateTrials: interventionTrials.slice(0,(interventionTrials.length/2)),
+  interventionRestudyTrials: interventionTrials.slice((interventionTrials.length/2), interventionTrials.length),
   interventionGenerateStrategyScore: Array(numStrategyRounds).fill(0),
   interventionRestudyStrategyScore: Array(numStrategyRounds).fill(0),
   interventionTestTrials: shuffle(interventionTrials.slice(0)), // test order
