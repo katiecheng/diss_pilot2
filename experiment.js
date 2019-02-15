@@ -147,7 +147,7 @@ var experiment = {
 
   //Intro to study
   interventionStudyFraming: function() { 
-    var header = "Word Pairs - Round 1";
+    var header = "Word Pairs";
     var text = "In a moment, you will be presented with 20 Swahili words paired with \
     their English translations. You will see each Swahili-English word pair \
     for 5 seconds, and then the screen will automatically advance to the \
